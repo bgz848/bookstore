@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Book</title>
+</head>
+<body>
+    <h2>Add New Book</h2>
+    <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+        <label>Title: <input type="text" th:field="*{title}" required /></label>
+        <label>Author: <input type="text" th:field="*{author}" required /></label>
+        <label>Publication Year: <input type="number" th:field="*{publicationYear}" required /></label>
+        <label>ISBN: <input type="text" th:field="*{isbn}" required /></label>
+        <button type="submit">Add Book</button>
+    </form>
+    <a href="/booklist">Back to Book List</a>
+</body>
+</html>
