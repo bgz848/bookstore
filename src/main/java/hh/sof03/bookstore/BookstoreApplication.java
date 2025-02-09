@@ -19,8 +19,8 @@ public class BookstoreApplication {
 	@Bean
     public CommandLineRunner dataLoader(BookRepository bookRepository) {
         return args -> {
-            bookRepository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", 45.0));
-            bookRepository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 50.0));
+            bookRepository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21"));
+            bookRepository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5"));
         };
     }
 }

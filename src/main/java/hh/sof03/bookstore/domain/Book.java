@@ -16,17 +16,15 @@ public class Book {
     private String author;
     private int publicationYear;
     private String isbn;
-    private double price;
 
     public Book() {
     }
 
-    public Book(String title, String author, int publicationYear, String isbn, double price) {
+    public Book(String title, String author, int publicationYear, String isbn) {
         this.title = title;
         this.author = author;
         this.publicationYear = publicationYear;
         this.isbn = isbn;
-        this.price = price;
     }
 
     public Long getId() {
@@ -69,11 +67,4 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
