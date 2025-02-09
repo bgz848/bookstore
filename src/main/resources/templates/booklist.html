@@ -22,6 +22,7 @@
                 <td th:text="${book.isbn}"></td>
                 <td>
                     <a th:href="@{/delete/{id}(id=${book.id})}" class="delete-btn">Delete</a>
+                    <a th:href="@{/edit/{id}(id=${book.id})}" class="edit-btn">Edit</a>
                 </td>
             </tr>
         </tbody>

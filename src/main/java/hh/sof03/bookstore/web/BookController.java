@@ -1,6 +1,7 @@
 package hh.sof03.bookstore.web;
 
 import java.util.List;
+import java.util.Optional;
 import hh.sof03.bookstore.domain.Book;
 import hh.sof03.bookstore.domain.BookRepository;
 import org.springframework.stereotype.Controller;
@@ -41,6 +42,32 @@ public class BookController {
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable Long id) {
         bookRepository.deleteById(id);
+        return "redirect:/booklist";
+    }
+
+
+    @GetMapping("/edit/{id}")
+    public String showEditBookForm(@PathVariable Long id, Model model) {
+        Optional<Book> book = bookRepository.findById(id);
+        if (book.isPresent()) {
+            model.addAttribute("book", book.get());
+            return "editbook"; // This maps to editbook.html
+        } else {
+            return "redirect:/booklist"; // If book not found, redirect
+        }
+    }
+
+    @PostMapping("/updatebook/{id}")
+    public String updateBook(@PathVariable Long id, @ModelAttribute Book updatedBook) {
+        Optional<Book> existingBook = bookRepository.findById(id);
+        if (existingBook.isPresent()) {
+            Book book = existingBook.get();
+            book.setTitle(updatedBook.getTitle());
+            book.setAuthor(updatedBook.getAuthor());
+            book.setPublicationYear(updatedBook.getPublicationYear());
+            book.setIsbn(updatedBook.getIsbn());
+            bookRepository.save(book);
+        }
         return "redirect:/booklist";
     }
 }
