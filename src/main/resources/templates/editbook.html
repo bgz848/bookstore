@@ -2,16 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Edit Book</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
 </head>
 <body>
-    <h2>Edit Book</h2>
-    <form th:action="@{/updatebook/{id}(id=${book.id})}" th:object="${book}" method="post">
-        <label>Title: <input type="text" th:field="*{title}" required /></label>
-        <label>Author: <input type="text" th:field="*{author}" required /></label>
-        <label>Publication Year: <input type="number" th:field="*{publicationYear}" required /></label>
-        <label>ISBN: <input type="text" th:field="*{isbn}" required /></label>
-        <button type="submit">Update Book</button>
-    </form>
-    <a href="/booklist">Back to Book List</a>
+    <div class="container mt-5">
+        <h2>Edit Book</h2>
+        <form th:action="@{/updatebook/{id}(id=${book.id})}" th:object="${book}" method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" class="form-control" id="title" th:field="*{title}" required />
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author:</label>
+                <input type="text" class="form-control" id="author" th:field="*{author}" required />
+            </div>
+            <div class="mb-3">
+                <label for="publicationYear" class="form-label">Publication Year:</label>
+                <input type="number" class="form-control" id="publicationYear" th:field="*{publicationYear}" required />
+            </div>
+            <div class="mb-3">
+                <label for="isbn" class="form-label">ISBN:</label>
+                <input type="text" class="form-control" id="isbn" th:field="*{isbn}" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Update Book</button>
+        </form>
+        <a href="/booklist" class="btn btn-secondary mt-3">Back to Book List</a>
+    </div>
 </body>
 </html>
