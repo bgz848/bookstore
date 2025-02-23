@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Category</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+</head>
+<body class="bg-light">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0 text-center">Add New Category</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/savecategory" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Category Name:</label>
+                            <input type="text" id="name" name="name" th:field="*{category.name}" class="form-control" placeholder="Enter category name" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Save Category</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a href="/categorylist" class="btn btn-outline-secondary">Back to Category List</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
